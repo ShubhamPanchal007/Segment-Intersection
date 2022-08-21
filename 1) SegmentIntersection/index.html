@@ -14,6 +14,7 @@
       myCanvas.width = window.innerWidth;
       myCanvas.height = window.innerHeight;
       const ctx = myCanvas.getContext("2d");
+
       // POINTS
       const A = { x: 50, y: 150 };
       const B = { x: 300, y: 300 };
@@ -28,6 +29,7 @@
       function animate() {
         // Clear canvas
         ctx.clearRect(0, 0, myCanvas.width, myCanvas.height);
+
         // Manupulating the x,y coordinates w.r.t to the mouse movements.
         A.x = mouse.x;
         A.y = mouse.y - 50;
@@ -39,11 +41,13 @@
         ctx.moveTo(C.x, C.y);
         ctx.lineTo(D.x, D.y);
         ctx.stroke();
+
         // Draw Dots on the end of lines.
         drawDot(A, "A");
         drawDot(B, "B");
         drawDot(C, "C");
         drawDot(D, "D");
+
         // Get intersection points between two lines.
         let intersectionPoint = getIntersection(A, B, C, D);
         drawDot(intersectionPoint, "I");
@@ -57,6 +61,7 @@
         ctx.arc(point.x, point.y, 10, 0, Math.PI * 2);
         ctx.fill();
         ctx.stroke();
+
         // Put text inside that circle
         ctx.fillStyle = "black";
         ctx.font = "bold 14px arial";
